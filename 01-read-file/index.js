@@ -13,6 +13,12 @@ stream.on('error', function(err){
 	}
 });
 
+let data = '';
+
 stream.on("data", (chunk) => {
-	console.log(chunk.toString());
+	data += chunk.toString();
 });
+
+stream.on('end', () =>{
+	console.log(data);
+})
